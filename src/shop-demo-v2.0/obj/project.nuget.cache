@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "XYkCfO44DMk=",
+  "success": true,
+  "projectFilePath": "/home/yuri/Dev/shop-demo-v2.0/src/shop-demo-v2.0/shop-demo-v2.0.csproj",
+  "expectedPackageFiles": [
+    "/home/yuri/.nuget/packages/microsoft.aspnetcore.openapi/9.0.4/microsoft.aspnetcore.openapi.9.0.4.nupkg.sha512",
+    "/home/yuri/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
