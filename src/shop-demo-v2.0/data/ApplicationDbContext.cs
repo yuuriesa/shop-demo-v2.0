@@ -14,5 +14,10 @@ namespace ShopDemo.Data
             string connectionString = "Server=127.0.0.1;Database=ShopDemoV2.0;User=SA;Password=Password123!;TrustServerCertificate=True";
             optionsBuilder.UseSqlServer(connectionString: connectionString);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
