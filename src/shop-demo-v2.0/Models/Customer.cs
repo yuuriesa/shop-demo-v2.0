@@ -21,7 +21,14 @@ namespace ShopDemo.Models
             
         }
 
-        private Customer()
+        private Customer
+        (
+            int customerId,
+            string firstName,
+            string lastName,
+            string EmailAddress,
+            DateOnly dateOfBirth
+        )
         {
             
         }
