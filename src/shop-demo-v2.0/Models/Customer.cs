@@ -60,27 +60,32 @@ namespace ShopDemo.Models
         }
 
         // private methods
-        private void SetCustomerId(int customerId)
+        private void SetCustomerId (int customerId)
         {
             
         }
 
-        private void SetFisrtName(string firstName)
+        private void SetFisrtName (string firstName)
         {
             
         }
 
-        private void SetLastName(string lastName)
+        private void SetLastName (string lastName)
         {
             
         }
 
-        private void SetEmailAddress(string emailAddress)
+        private void SetEmailAddress (string emailAddress)
         {
             
         }
 
-        private void SetDateOfBirth(DateTime dateOfBirth)
+        private void SetDateOfBirth (DateTime dateOfBirth)
+        {
+            
+        }
+
+        private void Validate ()
         {
             
         }
