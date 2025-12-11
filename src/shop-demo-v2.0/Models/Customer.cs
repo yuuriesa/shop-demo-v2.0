@@ -32,7 +32,13 @@ namespace ShopDemo.Models
             DateOnly dateOfBirth
         )
         {
-            
+            CustomerId = customerId;
+            _firstName = firstName;
+            _lastName = lastName;
+            _emailAddress = emailAddress;
+            _dateOfBirth = dateOfBirth;
+
+            Validate();
         }
 
         // public methods
@@ -44,7 +50,15 @@ namespace ShopDemo.Models
             DateTime dateOfBirth
         )
         {
-            
+            Customer customer = new Customer ();
+
+            customer.SetFisrtName(firstName: firstName);
+            customer.SetLastName(lastName: lastName);
+            customer.SetEmailAddress(emailAddress: emailAddress);
+            customer.SetDateOfBirth(dateOfBirth: dateOfBirth);
+            customer.Validate();
+
+            return customer;
         }
 
         public static Customer SetExistingInfo
