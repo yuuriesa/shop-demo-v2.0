@@ -45,6 +45,18 @@ namespace ShopDemo.Models
             
         }
 
+        public static Customer SetExistingInfo
+        (
+            int customerId,
+            string firstName,
+            string lastName,
+            string emailAddress,
+            DateOnly dateOfBirth
+        )
+        {
+            
+        }
+
         // private methods
     }
 }
