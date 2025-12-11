@@ -64,5 +64,10 @@ namespace ShopDemo.Models
         {
             
         }
+
+        private void SetFisrtName(string firstName)
+        {
+            
+        }
     }
 }
