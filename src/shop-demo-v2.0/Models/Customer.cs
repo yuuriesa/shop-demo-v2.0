@@ -32,5 +32,19 @@ namespace ShopDemo.Models
         {
             
         }
+
+        // public methods
+        public static Customer RegisterNew
+        (
+            string firstName,
+            string lastName,
+            string emailAddress,
+            DateTime dateOfBirth
+        )
+        {
+            
+        }
+
+        // private methods
     }
 }
