@@ -28,7 +28,7 @@ namespace ShopDemo.Models
             int customerId,
             string firstName,
             string lastName,
-            string EmailAddress,
+            string emailAddress,
             DateOnly dateOfBirth
         )
         {
@@ -56,7 +56,17 @@ namespace ShopDemo.Models
             DateOnly dateOfBirth
         )
         {
-            
+            Customer customer = new Customer
+            (
+                customerId: customerId,
+                firstName: firstName,
+                lastName: lastName,
+                emailAddress: emailAddress,
+                dateOfBirth: dateOfBirth
+            );
+
+            customer.Validate();
+            return customer;
         }
 
         // private methods
