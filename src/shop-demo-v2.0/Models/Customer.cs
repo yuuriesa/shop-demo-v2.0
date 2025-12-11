@@ -69,5 +69,10 @@ namespace ShopDemo.Models
         {
             
         }
+
+        private void SetLastName(string lastName)
+        {
+            
+        }
     }
 }
