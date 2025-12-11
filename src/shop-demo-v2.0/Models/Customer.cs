@@ -74,5 +74,10 @@ namespace ShopDemo.Models
         {
             
         }
+
+        private void SetEmailAddress(string emailAddress)
+        {
+            
+        }
     }
 }
