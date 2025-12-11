@@ -79,5 +79,10 @@ namespace ShopDemo.Models
         {
             
         }
+
+        private void SetDateOfBirth(DateTime dateOfBirth)
+        {
+            
+        }
     }
 }
