@@ -14,5 +14,37 @@ namespace ShopDemo.Models
         public string LastName => _lastName;
         public string EmailAddress => _emailAddress;
         public DateOnly DateOfBirth =>  _dateOfBirth;
+
+        // constructors
+        private Customer()
+        {
+            
+        }
+
+        private Customer
+        (
+            int customerId,
+            string firstName,
+            string lastName,
+            string EmailAddress,
+            DateOnly dateOfBirth
+        )
+        {
+            
+        }
+
+        // public methods
+        public static Customer RegisterNew
+        (
+            string firstName,
+            string lastName,
+            string emailAddress,
+            DateTime dateOfBirth
+        )
+        {
+            
+        }
+
+        // private methods
     }
 }
