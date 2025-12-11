@@ -14,6 +14,7 @@ namespace ShopDemo.Models
         public string LastName => _lastName;
         public string EmailAddress => _emailAddress;
         public DateOnly DateOfBirth =>  _dateOfBirth;
+        public bool IsValid { get; private set; }
 
         // constructors
         private Customer()
