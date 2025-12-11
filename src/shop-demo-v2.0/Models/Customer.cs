@@ -14,6 +14,8 @@ namespace ShopDemo.Models
         public string LastName => _lastName;
         public string EmailAddress => _emailAddress;
         public DateOnly DateOfBirth =>  _dateOfBirth;
+        public bool IsValid { get; private set; }
+        public string ErrorMessagesIfNotValid { get; private set; } = string.Empty;
 
         // constructors
         private Customer()
@@ -40,6 +42,18 @@ namespace ShopDemo.Models
             string lastName,
             string emailAddress,
             DateTime dateOfBirth
+        )
+        {
+            
+        }
+
+        public static Customer SetExistingInfo
+        (
+            int customerId,
+            string firstName,
+            string lastName,
+            string emailAddress,
+            DateOnly dateOfBirth
         )
         {
             
