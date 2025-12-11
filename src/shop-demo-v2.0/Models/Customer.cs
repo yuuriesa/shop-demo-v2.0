@@ -60,5 +60,9 @@ namespace ShopDemo.Models
         }
 
         // private methods
+        private void SetCustomerId(int customerId)
+        {
+            
+        }
     }
 }
