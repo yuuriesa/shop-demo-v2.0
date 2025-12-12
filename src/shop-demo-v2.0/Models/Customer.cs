@@ -86,32 +86,37 @@ namespace ShopDemo.Models
         // private methods
         private void SetCustomerId (int customerId)
         {
-            
+            CustomerId = customerId;
         }
 
         private void SetFisrtName (string firstName)
         {
-            
+            _firstName = firstName;
         }
 
         private void SetLastName (string lastName)
         {
-            
+            _lastName = lastName;
         }
 
         private void SetEmailAddress (string emailAddress)
         {
-            
+            _emailAddress = emailAddress;
         }
 
         private void SetDateOfBirth (DateTime dateOfBirth)
         {
-            
+            _dateOfBirth = DateOnly.FromDateTime(dateTime: dateOfBirth);
         }
 
         private void Validate ()
         {
-            
+            DateTime dateNow = DateTime.Now;
+
+            if (_dateOfBirth.ToDateTime(TimeOnly.MinValue).ToUniversalTime().Date > dateNow.Date)
+            {
+                
+            }
         }
     }
 }
