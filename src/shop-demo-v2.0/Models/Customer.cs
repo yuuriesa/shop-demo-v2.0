@@ -117,6 +117,12 @@ namespace ShopDemo.Models
                 IsValid = false;
                 ErrorMessagesIfNotValid = "You cannot put the date with the day after today.";
             }
+
+            if (_firstName.Length > 40)
+            {
+                IsValid = false;
+                ErrorMessagesIfNotValid = "First name must have a maximum of 40 characters";
+            }
         }
     }
 }
