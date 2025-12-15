@@ -5,6 +5,7 @@ namespace ShopDemo.Data
 {
     public interface IApplicationDbContext
     {
-        DbSet<Customer> Customers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public int SaveChanges();
     }
 }
