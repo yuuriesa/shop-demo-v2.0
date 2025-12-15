@@ -1,3 +1,5 @@
+using ShopDemo.Utils;
+
 namespace ShopDemo.Models
 {
     public class Customer
@@ -32,7 +34,7 @@ namespace ShopDemo.Models
             DateOnly dateOfBirth
         )
         {
-            SetCustomerId(customerId);
+            SetCustomerId(customerId: customerId);
             _firstName = firstName;
             _lastName = lastName;
             _emailAddress = emailAddress;
@@ -115,7 +117,24 @@ namespace ShopDemo.Models
             if (_dateOfBirth.ToDateTime(TimeOnly.MinValue).ToUniversalTime().Date > dateNow.Date)
             {
                 IsValid = false;
-                ErrorMessagesIfNotValid = "You cannot put the date with the day after today.";
+                ErrorMessagesIfNotValid = DomainResponseMessages.DateOfBirthError;
+            }
+
+            if (_firstName.Length > 40)
+            {
+                IsValid = false;
+                ErrorMessagesIfNotValid = $"First name {DomainResponseMessages.MaximumOf40CharactersError.ToLower()}";
+            }
+
+            if (_lastName.Length > 40)
+            {
+                IsValid = false;
+                ErrorMessagesIfNotValid = $"Last name {DomainResponseMessages.MaximumOf40CharactersError.ToLower()}";
+            }
+
+            if (ErrorMessagesIfNotValid == string.Empty)
+            {
+                IsValid = true;
             }
         }
     }

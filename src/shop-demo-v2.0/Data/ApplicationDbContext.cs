@@ -1,13 +1,17 @@
 using Microsoft.EntityFrameworkCore;
+using ShopDemo.Models;
 
 namespace ShopDemo.Data
 {
     public class ApplicationDbContext: DbContext, IApplicationDbContext
     {
+        public DbSet<Customer> Customers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        
         public ApplicationDbContext(DbContextOptions options) : base(options: options)
         {
             
         }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -17,7 +21,40 @@ namespace ShopDemo.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder
+            .Entity<Customer>(entity =>
+                {
+                    entity.HasKey(c => c.CustomerId);
+
+                    entity.Property(c => c.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(maxLength: 40)
+                    .HasColumnName("FirstName")
+                    .HasField("_firstName");
+
+                    entity.Property(c => c.LastName)
+                    .IsRequired()
+                    .HasMaxLength(maxLength: 40)
+                    .HasColumnName("LastName")
+                    .HasField("_lastName");
+
+                    entity.HasIndex(c => c.EmailAddress)
+                    .IsUnique();
+
+                    entity.Property(c => c.EmailAddress)
+                    .IsRequired()
+                    .HasColumnName("EmailAddress")
+                    .HasField("_emailAddress");
+
+                    entity.Property(c => c.DateOfBirth)
+                    .IsRequired()
+                    .HasColumnName("DateOfBirth")
+                    .HasField("_dateOfBirth")
+                    .HasDefaultValue(DateOnly.FromDateTime(dateTime: DateTime.Now));
+
+                    entity.Ignore(c => c.ErrorMessagesIfNotValid);
+                }
+            );
         }
     }
 }
