@@ -32,7 +32,7 @@ namespace ShopDemo.Models
             DateOnly dateOfBirth
         )
         {
-            CustomerId = customerId;
+            SetCustomerId(customerId);
             _firstName = firstName;
             _lastName = lastName;
             _emailAddress = emailAddress;
@@ -79,7 +79,6 @@ namespace ShopDemo.Models
                 dateOfBirth: dateOfBirth
             );
 
-            customer.Validate();
             return customer;
         }
 
@@ -115,7 +114,8 @@ namespace ShopDemo.Models
 
             if (_dateOfBirth.ToDateTime(TimeOnly.MinValue).ToUniversalTime().Date > dateNow.Date)
             {
-                
+                IsValid = false;
+                ErrorMessagesIfNotValid = "You cannot put the date with the day after today.";
             }
         }
     }
