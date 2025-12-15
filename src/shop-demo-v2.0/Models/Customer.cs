@@ -117,7 +117,7 @@ namespace ShopDemo.Models
             if (_dateOfBirth.ToDateTime(TimeOnly.MinValue).ToUniversalTime().Date > dateNow.Date)
             {
                 IsValid = false;
-                ErrorMessagesIfNotValid = "You cannot put the date with the day after today.";
+                ErrorMessagesIfNotValid = DomainResponseMessages.DateOfBirthError;
             }
 
             if (_firstName.Length > 40)
