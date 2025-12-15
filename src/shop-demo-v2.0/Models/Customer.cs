@@ -32,7 +32,7 @@ namespace ShopDemo.Models
             DateOnly dateOfBirth
         )
         {
-            SetCustomerId(customerId);
+            SetCustomerId(customerId: customerId);
             _firstName = firstName;
             _lastName = lastName;
             _emailAddress = emailAddress;
