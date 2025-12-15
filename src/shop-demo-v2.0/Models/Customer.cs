@@ -129,6 +129,11 @@ namespace ShopDemo.Models
                 IsValid = false;
                 ErrorMessagesIfNotValid = "Last name must have a maximum of 40 characters";
             }
+
+            if (ErrorMessagesIfNotValid == string.Empty)
+            {
+                IsValid = true;
+            }
         }
     }
 }
