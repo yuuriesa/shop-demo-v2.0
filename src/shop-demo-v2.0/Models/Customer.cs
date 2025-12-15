@@ -1,3 +1,5 @@
+using ShopDemo.Utils;
+
 namespace ShopDemo.Models
 {
     public class Customer
@@ -121,7 +123,7 @@ namespace ShopDemo.Models
             if (_firstName.Length > 40)
             {
                 IsValid = false;
-                ErrorMessagesIfNotValid = "First name must have a maximum of 40 characters";
+                ErrorMessagesIfNotValid = $"First name {DomainResponseMessages.MaximumOf40CharactersError.ToLower()}";
             }
 
             if (_lastName.Length > 40)
