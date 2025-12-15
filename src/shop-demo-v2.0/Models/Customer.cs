@@ -129,7 +129,7 @@ namespace ShopDemo.Models
             if (_lastName.Length > 40)
             {
                 IsValid = false;
-                ErrorMessagesIfNotValid = "Last name must have a maximum of 40 characters";
+                ErrorMessagesIfNotValid = $"Last name {DomainResponseMessages.MaximumOf40CharactersError.ToLower()}";
             }
 
             if (ErrorMessagesIfNotValid == string.Empty)
