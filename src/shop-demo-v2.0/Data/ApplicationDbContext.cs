@@ -5,7 +5,7 @@ namespace ShopDemo.Data
 {
     public class ApplicationDbContext: DbContext, IApplicationDbContext
     {
-        public DbSet<Customer> Customers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DbSet<Customer> Customers { get; set; }
         
         public ApplicationDbContext(DbContextOptions options) : base(options: options)
         {
