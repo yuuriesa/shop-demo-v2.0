@@ -53,6 +53,7 @@ namespace ShopDemo.Data
                     .HasDefaultValue(DateOnly.FromDateTime(dateTime: DateTime.Now));
 
                     entity.Ignore(c => c.ErrorMessagesIfNotValid);
+                    entity.Ignore(c => c.IsValid);
                 }
             );
         }
