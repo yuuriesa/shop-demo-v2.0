@@ -7,7 +7,7 @@ namespace ShopDemo.Data
     {
         public DbSet<Customer> Customers { get; set; }
         
-        public ApplicationDbContext(DbContextOptions options) : base(options: options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options: options)
         {
             
         }
