@@ -7,7 +7,7 @@ namespace ShopDemo.Data
     {
         public DbSet<Customer> Customers { get; set; }
         
-        public ApplicationDbContext(DbContextOptions options) : base(options: options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options: options)
         {
             
         }
@@ -53,6 +53,7 @@ namespace ShopDemo.Data
                     .HasDefaultValue(DateOnly.FromDateTime(dateTime: DateTime.Now));
 
                     entity.Ignore(c => c.ErrorMessagesIfNotValid);
+                    entity.Ignore(c => c.IsValid);
                 }
             );
         }
