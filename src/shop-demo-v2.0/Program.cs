@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using shop_demo_v2.Repository;
+using ShopDemo.Repository;
 using ShopDemo.Data;
 using ShopDemo.Models;
+using ShopDemo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ builder.Services.AddControllers()
 builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 builder.Services.AddScoped<IRepositoryBase<Customer>, RepositoryBase<Customer>>();
+builder.Services.AddScoped<ICustomerServices, CustomerServices>();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
     {
