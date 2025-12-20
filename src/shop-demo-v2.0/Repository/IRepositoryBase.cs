@@ -1,6 +1,6 @@
 namespace shop_demo_v2.Repository
 {
-    public interface IRepositoryBase
+    public interface IRepositoryBase<TEntity> where TEntity : class
     {
         
     }
