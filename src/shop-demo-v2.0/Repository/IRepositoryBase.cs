@@ -1,4 +1,4 @@
-namespace shop_demo_v2.Repository
+namespace ShopDemo.Repository
 {
     public interface IRepositoryBase<TEntity> where TEntity : class
     {
