@@ -27,7 +27,9 @@ namespace ShopDemo.Repository
 
         public IQueryable<TEntity> GetAll(PaginationFilter paginationFilter)
         {
-            throw new NotImplementedException();
+            return _dbSetEntity
+                    .Skip((paginationFilter.PageNumber - 1) * paginationFilter.PageSize)
+                    .Take(paginationFilter.PageSize);
         }
 
         public TEntity GetById(int id)
