@@ -44,12 +44,12 @@ namespace ShopDemo.Repository
 
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            _dbContext.SaveChanges();
         }
 
         public void Update(int id, TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbSetEntity.Update(entity: entity);
         }
     }
 }
