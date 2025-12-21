@@ -22,7 +22,7 @@ namespace ShopDemo.Repository
 
         public void AddRange(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            _dbSetEntity.AddRange(entities: entities);
         }
 
         public IQueryable<TEntity> GetAll(PaginationFilter paginationFilter)
