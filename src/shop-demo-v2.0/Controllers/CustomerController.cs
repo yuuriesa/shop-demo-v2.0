@@ -10,5 +10,11 @@ namespace ShopDemo.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
         private readonly ICustomerServices _services;
+
+        public CustomerController(ApplicationDbContext dbContext, ICustomerServices services)
+        {
+            _dbContext = dbContext;
+            _services = services;
+        }
     }
 }
