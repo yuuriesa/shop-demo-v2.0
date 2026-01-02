@@ -16,5 +16,11 @@ namespace ShopDemo.Controllers
             _dbContext = dbContext;
             _services = services;
         }
+
+        [HttpGet]
+        public IActionResult GetAll(int pageNumber = 1, int pageSize = 10)
+        {
+            
+        }
     }
 }
