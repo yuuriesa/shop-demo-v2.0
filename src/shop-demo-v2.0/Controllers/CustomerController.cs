@@ -20,7 +20,7 @@ namespace ShopDemo.Controllers
         [HttpGet]
         public IActionResult GetAll(int pageNumber = 1, int pageSize = 10)
         {
-            
+            return Ok();
         }
     }
 }
