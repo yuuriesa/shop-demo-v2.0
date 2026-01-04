@@ -11,8 +11,9 @@ builder.Services.AddControllers()
     .AddJsonOptions(c => c.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull);
 builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
-builder.Services.AddScoped<IRepositoryBase<Customer>, RepositoryBase<Customer>>();
 builder.Services.AddScoped<ICustomerServices, CustomerServices>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IRepositoryBase<Customer>, RepositoryBase<Customer>>();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
     {
