@@ -1,6 +1,8 @@
+using ShopDemo.Models;
+
 namespace ShopDemo.Repository
 {
-    public interface ICustomerRepository
+    public interface ICustomerRepository : IRepositoryBase<Customer>
     {
         
     }
