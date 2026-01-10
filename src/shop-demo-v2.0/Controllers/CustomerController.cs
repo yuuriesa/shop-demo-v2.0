@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ShopDemo.Data;
+using ShopDemo.Models;
 using ShopDemo.Services;
+using ShopDemo.Utils;
 
 namespace ShopDemo.Controllers
 {
@@ -20,7 +22,18 @@ namespace ShopDemo.Controllers
         [HttpGet]
         public IActionResult GetAll(int pageNumber = 1, int pageSize = 10)
         {
-            return Ok();
+            if (pageNumber < 0 || pageSize < 0) return BadRequest(DomainResponseMessages.CustomerPaginationError);
+
+            PaginationFilter paginationFilter = new PaginationFilter(pageNumber: pageNumber, pageSize: pageSize);
+
+            IQueryable<Customer> customers = _services.GetAll(paginationFilter: paginationFilter);
+
+            if (customers.Count() == 0)
+            {
+                return NoContent();
+            }
+
+            return Ok(customers);
         }
     }
 }

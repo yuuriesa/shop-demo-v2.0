@@ -1,5 +1,7 @@
 using ShopDemo.Data;
+using ShopDemo.Models;
 using ShopDemo.Repository;
+using ShopDemo.Utils;
 
 namespace ShopDemo.Services
 {
@@ -12,6 +14,11 @@ namespace ShopDemo.Services
         {
             _dbContext = dbContext;
             _repository = repository;   
+        }
+
+        public IQueryable<Customer> GetAll(PaginationFilter paginationFilter)
+        {
+            return _repository.GetAll(paginationFilter: paginationFilter);
         }
     }
 }
