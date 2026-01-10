@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ShopDemo.Data;
+using ShopDemo.Models;
 using ShopDemo.Services;
 using ShopDemo.Utils;
 
@@ -25,7 +26,14 @@ namespace ShopDemo.Controllers
 
             PaginationFilter paginationFilter = new PaginationFilter(pageNumber: pageNumber, pageSize: pageSize);
 
-            return Ok();
+            IQueryable<Customer> customers = _services.GetAll(paginationFilter: paginationFilter);
+
+            if (customers.Count() == 0)
+            {
+                return NoContent();
+            }
+
+            return Ok(customers);
         }
     }
 }
