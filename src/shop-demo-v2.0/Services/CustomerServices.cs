@@ -18,7 +18,7 @@ namespace ShopDemo.Services
 
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter)
         {
-            throw new NotImplementedException();
+            return _repository.GetAll(paginationFilter: paginationFilter);
         }
     }
 }
