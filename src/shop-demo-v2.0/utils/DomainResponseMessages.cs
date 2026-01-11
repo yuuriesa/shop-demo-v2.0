@@ -6,5 +6,6 @@ namespace ShopDemo.Utils
         public const string DateOfBirthError = "You cannot put the date with the day after today.";
         public const string CustomerPaginationError = "The pagination parameters 'pageSize' and 'pageNumber' must be positive numbers. Check the values provided.";
         public const string CustomerFirstNameIsRequired = "FirstName Is Required";
+        public const string CustomerLastNameIsRequired = "LastName Is Required";
     }
 }
