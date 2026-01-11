@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ShopDemo.Data;
+using ShopDemo.DTOs;
 using ShopDemo.Models;
 using ShopDemo.Services;
 using ShopDemo.Utils;
@@ -37,9 +38,9 @@ namespace ShopDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add()
+        public IActionResult Add(CustomerRequestDTO customerRequestDTO)
         {
-            
+            return Ok();
         }
     }
 }
