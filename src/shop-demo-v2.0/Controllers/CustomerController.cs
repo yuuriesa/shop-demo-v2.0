@@ -35,5 +35,11 @@ namespace ShopDemo.Controllers
 
             return Ok(customers);
         }
+
+        [HttpPost]
+        public IActionResult Add()
+        {
+            
+        }
     }
 }
