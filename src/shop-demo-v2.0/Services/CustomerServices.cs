@@ -16,6 +16,11 @@ namespace ShopDemo.Services
             _repository = repository;   
         }
 
+        public Customer Add()
+        {
+            throw new NotImplementedException();
+        }
+
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter)
         {
             return _repository.GetAll(paginationFilter: paginationFilter);
