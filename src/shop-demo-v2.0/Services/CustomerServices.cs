@@ -1,4 +1,5 @@
 using ShopDemo.Data;
+using ShopDemo.DTOs;
 using ShopDemo.Models;
 using ShopDemo.Repository;
 using ShopDemo.Utils;
@@ -16,7 +17,7 @@ namespace ShopDemo.Services
             _repository = repository;   
         }
 
-        public Customer Add()
+        public Customer Add(CustomerRequestDTO customerRequestDTO)
         {
             throw new NotImplementedException();
         }
