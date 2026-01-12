@@ -10,5 +10,10 @@ namespace ShopDemo.Repository
         {
             _dbContext= dbContext;
         }
+
+        public Customer GetCustomerByEmail(string emailAddress)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
