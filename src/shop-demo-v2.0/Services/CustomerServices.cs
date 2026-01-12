@@ -19,7 +19,24 @@ namespace ShopDemo.Services
 
         public Customer Add(CustomerRequestDTO customerRequestDTO)
         {
-            throw new NotImplementedException();
+            Customer newCustomer = Customer.RegisterNew
+            (
+                    firstName: customerRequestDTO.FirstName,
+                    lastName: customerRequestDTO.LastName,
+                    emailAddress: customerRequestDTO.EmailAddress,
+                    dateOfBirth: customerRequestDTO.DateOfBirth
+            );
+
+            if (!newCustomer.IsValid)
+            {
+                throw new ArgumentOutOfRangeException($"Mano ta errado isso ai: {newCustomer.ErrorMessagesIfNotValid}");
+            }
+
+            _repository.Add(entity: newCustomer);
+            _repository.SaveChanges();
+
+            return newCustomer;
+
         }
 
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter)
