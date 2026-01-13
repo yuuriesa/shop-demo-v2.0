@@ -41,7 +41,13 @@ namespace ShopDemo.Controllers
         public IActionResult Add(CustomerRequestDTO customerRequestDTO)
         {
             ServiceResult<Customer> result = _services.Add(customerRequestDTO: customerRequestDTO);
-            return Ok(newCustomer);
+
+            if (!result.Success)
+            {
+                return StatusCode(statusCode: result.StatusCode, value: result.Message);
+            }
+
+            return Ok(result.Data);
         }
     }
 }
