@@ -17,8 +17,19 @@ namespace ShopDemo.Services
             _repository = repository;   
         }
 
-        public Customer Add(CustomerRequestDTO customerRequestDTO)
+        public ServiceResult<Customer> Add(CustomerRequestDTO customerRequestDTO)
         {
+            Customer customerExists = _repository.GetCustomerByEmail(emailAddress: customerRequestDTO.EmailAddress);
+
+            if (customerExists != null)
+            {
+                return ServiceResult<Customer>.ErrorResult
+                (
+                    message: $"{DomainResponseMessages.CustomerEmailExistsError}: {customerRequestDTO.EmailAddress}",
+                    statusCode: 409
+                );
+            }
+
             Customer newCustomer = Customer.RegisterNew
             (
                     firstName: customerRequestDTO.FirstName,

@@ -40,7 +40,7 @@ namespace ShopDemo.Controllers
         [HttpPost]
         public IActionResult Add(CustomerRequestDTO customerRequestDTO)
         {
-            Customer newCustomer = _services.Add(customerRequestDTO: customerRequestDTO);
+            ServiceResult<Customer> result = _services.Add(customerRequestDTO: customerRequestDTO);
             return Ok(newCustomer);
         }
     }
