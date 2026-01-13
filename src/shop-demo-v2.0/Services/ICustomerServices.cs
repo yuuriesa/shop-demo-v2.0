@@ -7,6 +7,6 @@ namespace ShopDemo.Services
     public interface ICustomerServices
     {
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter);
-        public Customer Add(CustomerRequestDTO customerRequestDTO);
+        public ServiceResult<Customer> Add(CustomerRequestDTO customerRequestDTO);
     }
 }
