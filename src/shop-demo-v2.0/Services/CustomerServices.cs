@@ -19,7 +19,7 @@ namespace ShopDemo.Services
 
         public ServiceResult<Customer> Add(CustomerRequestDTO customerRequestDTO)
         {
-            Customer customerExists = _repository.GetCustomerByEmail(emailAddress: customerRequestDTO.EmailAddress);
+            Customer? customerExists = _repository.GetCustomerByEmail(emailAddress: customerRequestDTO.EmailAddress);
 
             if (customerExists != null)
             {
@@ -40,13 +40,13 @@ namespace ShopDemo.Services
 
             if (!newCustomer.IsValid)
             {
-                throw new ArgumentOutOfRangeException($"Mano ta errado isso ai: {newCustomer.ErrorMessagesIfNotValid}");
+                return ServiceResult<Customer>.ErrorResult(message: newCustomer.ErrorMessagesIfNotValid, statusCode: 400);
             }
 
             _repository.Add(entity: newCustomer);
             _repository.SaveChanges();
 
-            return newCustomer;
+            return ServiceResult<Customer>.SuccessResult(data: newCustomer);
 
         }
 

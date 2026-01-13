@@ -4,6 +4,6 @@ namespace ShopDemo.Repository
 {
     public interface ICustomerRepository : IRepositoryBase<Customer>
     {
-        public Customer GetCustomerByEmail(string emailAddress);
+        public Customer? GetCustomerByEmail(string emailAddress);
     }
 }
