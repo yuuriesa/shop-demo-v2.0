@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using ShopDemo.Data;
 using ShopDemo.Models;
 
@@ -11,9 +12,17 @@ namespace ShopDemo.Repository
             _dbContext= dbContext;
         }
 
-        public Customer GetCustomerByEmail(string emailAddress)
+        public Customer? GetCustomerByEmail(string emailAddress)
         {
-            throw new NotImplementedException();
+            // add include depois que colocar os endereços
+            Customer? customer = _dbContext.Customers.AsNoTracking().Where(c => c.EmailAddress == emailAddress).FirstOrDefault();
+
+            if (customer == null)
+            {
+                return null;
+            }
+
+            return customer;
         }
     }
 }
