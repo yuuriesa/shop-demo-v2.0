@@ -46,7 +46,7 @@ namespace ShopDemo.Services
             _repository.Add(entity: newCustomer);
             _repository.SaveChanges();
 
-            return newCustomer;
+            return ServiceResult<Customer>.SuccessResult(data: newCustomer);
 
         }
 
