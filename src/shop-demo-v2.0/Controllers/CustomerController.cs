@@ -64,7 +64,7 @@ namespace ShopDemo.Controllers
 
             CustomerResponseDTO customerResponseDTO = _services.GenerateCustomerResponseDTO(customer: result.Data);
 
-            return Ok(customerResponseDTO);
+            return CreatedAtAction(actionName: nameof(GetById), routeValues: new { id = customerResponseDTO.CustomerId}, value: customerResponseDTO);
         }
     }
 }
