@@ -34,7 +34,9 @@ namespace ShopDemo.Controllers
                 return NoContent();
             }
 
-            return Ok(customers);
+            List<CustomerResponseDTO> customersResponseDTOs = _services.GenerateListCustomerResponseDTO(customers: customers);
+
+            return Ok(customersResponseDTOs);
         }
 
         [HttpGet("{id}")]
