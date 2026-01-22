@@ -68,5 +68,10 @@ namespace ShopDemo.Services
         {
             return _repository.GetAll(paginationFilter: paginationFilter);
         }
+
+        public Customer GetById(int id)
+        {
+            return _repository.GetById(id: id);
+        }
     }
 }
