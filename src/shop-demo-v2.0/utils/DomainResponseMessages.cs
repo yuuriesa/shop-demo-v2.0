@@ -12,6 +12,6 @@ namespace ShopDemo.Utils
         public const string CustomerEmailAddressIsRequiredError = "Email Address Is Required";
         public const string CustomerEmailFieldIsNotAValid = "The Email field is not a valid e-mail address.";
         public const string CustomerEmailExistsError = "this email exists";
-        public const string CustomerNotFound = "Customer not found";
+        public const string CustomerNotFoundError = "Customer not found";
     }
 }
