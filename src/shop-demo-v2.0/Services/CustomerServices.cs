@@ -66,7 +66,23 @@ namespace ShopDemo.Services
 
         public List<CustomerResponseDTO> GenerateListCustomerResponseDTO(IQueryable<Customer> customers)
         {
-            throw new NotImplementedException();
+            List<CustomerResponseDTO> listCustomersResponseDTOs = new List<CustomerResponseDTO>();
+
+            foreach (var customer in customers)
+            {
+                CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO
+                {
+                    CustomerId = customer.CustomerId,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    EmailAddress = customer.EmailAddress,
+                    DateOfBirth = customer.DateOfBirth  
+                };
+
+                listCustomersResponseDTOs.Add(item: customerResponseDTO);
+            };
+
+            return listCustomersResponseDTOs;
         }
 
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter)
