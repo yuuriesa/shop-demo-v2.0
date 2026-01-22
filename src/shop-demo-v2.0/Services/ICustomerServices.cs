@@ -10,5 +10,6 @@ namespace ShopDemo.Services
         public Customer GetById(int id);
         public ServiceResult<Customer> Add(CustomerRequestDTO customerRequestDTO);
         public CustomerResponseDTO GenerateCustomerResponseDTO(Customer customer);
+        public List<CustomerResponseDTO> GenerateListCustomerResponseDTO(IQueryable<Customer> customers);
     }
 }
