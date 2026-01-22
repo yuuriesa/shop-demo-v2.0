@@ -52,7 +52,7 @@ namespace ShopDemo.Services
 
         public CustomerResponseDTO GenerateCustomerResponseDTO(Customer customer)
         {
-            CustomerResponseDTO customerRespondeDTO = new CustomerResponseDTO
+            CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO
             {
                 CustomerId = customer.CustomerId,
                 FirstName = customer.FirstName,
@@ -61,7 +61,28 @@ namespace ShopDemo.Services
                 DateOfBirth = customer.DateOfBirth  
             };
 
-            return customerRespondeDTO;
+            return customerResponseDTO;
+        }
+
+        public List<CustomerResponseDTO> GenerateListCustomerResponseDTO(IQueryable<Customer> customers)
+        {
+            List<CustomerResponseDTO> listCustomersResponseDTOs = new List<CustomerResponseDTO>();
+
+            foreach (var customer in customers)
+            {
+                CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO
+                {
+                    CustomerId = customer.CustomerId,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    EmailAddress = customer.EmailAddress,
+                    DateOfBirth = customer.DateOfBirth  
+                };
+
+                listCustomersResponseDTOs.Add(item: customerResponseDTO);
+            };
+
+            return listCustomersResponseDTOs;
         }
 
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter)
