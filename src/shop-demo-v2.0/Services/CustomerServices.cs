@@ -50,9 +50,18 @@ namespace ShopDemo.Services
 
         }
 
-        public CustomerRespondeDTO GenerateCustomerResponseDTO(Customer customer)
+        public CustomerResponseDTO GenerateCustomerResponseDTO(Customer customer)
         {
-            throw new NotImplementedException();
+            CustomerResponseDTO customerRespondeDTO = new CustomerResponseDTO
+            {
+                CustomerId = customer.CustomerId,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                EmailAddress = customer.EmailAddress,
+                DateOfBirth = customer.DateOfBirth  
+            };
+
+            return customerRespondeDTO;
         }
 
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter)
