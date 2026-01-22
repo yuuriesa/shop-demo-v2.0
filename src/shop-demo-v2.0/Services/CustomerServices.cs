@@ -64,6 +64,11 @@ namespace ShopDemo.Services
             return customerRespondeDTO;
         }
 
+        public List<CustomerResponseDTO> GenerateListCustomerResponseDTO(IQueryable<Customer> customers)
+        {
+            throw new NotImplementedException();
+        }
+
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter)
         {
             return _repository.GetAll(paginationFilter: paginationFilter);
