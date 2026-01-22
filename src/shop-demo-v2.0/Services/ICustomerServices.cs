@@ -8,6 +8,6 @@ namespace ShopDemo.Services
     {
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter);
         public ServiceResult<Customer> Add(CustomerRequestDTO customerRequestDTO);
-        public CustomerRespondeDTO GenerateCustomerResponseDTO(Customer customer);
+        public CustomerResponseDTO GenerateCustomerResponseDTO(Customer customer);
     }
 }
