@@ -52,7 +52,7 @@ namespace ShopDemo.Services
 
         public CustomerResponseDTO GenerateCustomerResponseDTO(Customer customer)
         {
-            CustomerResponseDTO customerRespondeDTO = new CustomerResponseDTO
+            CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO
             {
                 CustomerId = customer.CustomerId,
                 FirstName = customer.FirstName,
@@ -61,7 +61,7 @@ namespace ShopDemo.Services
                 DateOfBirth = customer.DateOfBirth  
             };
 
-            return customerRespondeDTO;
+            return customerResponseDTO;
         }
 
         public List<CustomerResponseDTO> GenerateListCustomerResponseDTO(IQueryable<Customer> customers)
