@@ -7,7 +7,8 @@ namespace ShopDemo.Services
     public interface ICustomerServices
     {
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter);
+        public Customer GetById(int id);
         public ServiceResult<Customer> Add(CustomerRequestDTO customerRequestDTO);
-        public CustomerRespondeDTO GenerateCustomerResponseDTO(Customer customer);
+        public CustomerResponseDTO GenerateCustomerResponseDTO(Customer customer);
     }
 }

@@ -1,6 +1,6 @@
 namespace ShopDemo.DTOs
 {
-    public class CustomerRespondeDTO
+    public class CustomerResponseDTO
     {
         public int CustomerId { get; set; }
         public string FirstName { get; set; }

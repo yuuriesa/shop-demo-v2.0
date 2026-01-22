@@ -37,6 +37,21 @@ namespace ShopDemo.Controllers
             return Ok(customers);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            Customer? customer = _services.GetById(id: id);
+
+            if (customer == null)
+            {
+                return NotFound(DomainResponseMessages.CustomerNotFoundError);
+            }
+
+            CustomerResponseDTO customerResponseDTO = _services.GenerateCustomerResponseDTO(customer: customer);
+
+            return Ok(customerResponseDTO);
+        }
+
         [HttpPost]
         public IActionResult Add(CustomerRequestDTO customerRequestDTO)
         {
@@ -47,7 +62,9 @@ namespace ShopDemo.Controllers
                 return StatusCode(statusCode: result.StatusCode, value: result.Message);
             }
 
-            return Ok(result.Data);
+            CustomerResponseDTO customerResponseDTO = _services.GenerateCustomerResponseDTO(customer: result.Data);
+
+            return CreatedAtAction(actionName: nameof(GetById), routeValues: new { id = customerResponseDTO.CustomerId}, value: customerResponseDTO);
         }
     }
 }
