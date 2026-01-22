@@ -47,7 +47,9 @@ namespace ShopDemo.Controllers
                 return StatusCode(statusCode: result.StatusCode, value: result.Message);
             }
 
-            return Ok(result.Data);
+            CustomerResponseDTO customerResponseDTO = _services.GenerateCustomerResponseDTO(customer: result.Data);
+
+            return Ok(customerResponseDTO);
         }
     }
 }
