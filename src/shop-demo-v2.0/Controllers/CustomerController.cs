@@ -70,7 +70,7 @@ namespace ShopDemo.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update()
+        public IActionResult Update(int id, CustomerRequestDTO customerRequestDTO)
         {
             
         }
