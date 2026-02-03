@@ -70,9 +70,18 @@ namespace ShopDemo.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update()
+        public IActionResult Update(int id, CustomerRequestDTO customerRequestDTO)
         {
-            
+            ServiceResult<Customer> result = _services.Update(id: id, customerRequestDTO: customerRequestDTO);
+
+            if (!result.Success)
+            {
+                return StatusCode(statusCode: result.StatusCode, value: result.Message);
+            }
+
+            CustomerResponseDTO customerResponseDTO = _services.GenerateCustomerResponseDTO(customer: result.Data);
+
+            return Ok(customerResponseDTO);
         }
     }
 }
