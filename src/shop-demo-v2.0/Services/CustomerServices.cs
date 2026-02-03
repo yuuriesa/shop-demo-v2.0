@@ -94,5 +94,10 @@ namespace ShopDemo.Services
         {
             return _repository.GetById(id: id);
         }
+
+        public ServiceResult<Customer> Update(int id, CustomerRequestDTO customerRequestDTO)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
