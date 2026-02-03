@@ -68,5 +68,11 @@ namespace ShopDemo.Controllers
 
             return CreatedAtAction(actionName: nameof(GetById), routeValues: new { id = customerResponseDTO.CustomerId}, value: customerResponseDTO);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Update()
+        {
+            
+        }
     }
 }
