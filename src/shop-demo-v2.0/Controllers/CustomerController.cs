@@ -83,5 +83,20 @@ namespace ShopDemo.Controllers
 
             return Ok(customerResponseDTO);
         }
+
+        [HttpPatch("{id}")]
+        public IActionResult UpdatePatch(int id, CustomerRequestDTOToUpdatePatch customerRequestDTOToUpdatePatch)
+        {
+            ServiceResult<Customer> result = _services.UpdatePatch(id: id, customerRequestDTOToUpdatePatch: customerRequestDTOToUpdatePatch);
+
+            if (!result.Success)
+            {
+                return StatusCode(statusCode: result.StatusCode, value: result.Message);
+            }
+
+            CustomerResponseDTO customerResponseDTO = _services.GenerateCustomerResponseDTO(customer: result.Data);
+
+            return Ok(customerResponseDTO);
+        }
     }
 }
