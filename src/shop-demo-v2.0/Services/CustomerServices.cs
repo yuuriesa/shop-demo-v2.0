@@ -141,5 +141,10 @@ namespace ShopDemo.Services
 
             return ServiceResult<Customer>.SuccessResult(data: updateCustomer);
         }
+
+        public ServiceResult<Customer> UpdatePatch(int id, CustomerRequestDTOToUpdatePatch customerRequestDTOToUpdatePatch)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
