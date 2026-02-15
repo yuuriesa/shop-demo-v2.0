@@ -96,9 +96,23 @@ namespace ShopDemo.Services
             return _repository.GetById(id: id);
         }
 
-        public void Remove(int id)
+        public ServiceResult<Customer> Remove(int id)
         {
-            throw new NotImplementedException();
+            Customer? customerExists = _dbContext.Customers.AsNoTracking().Where(c => c.CustomerId == id).FirstOrDefault();
+
+            if (customerExists == null)
+            {
+                return ServiceResult<Customer>.ErrorResult
+                (
+                    message: DomainResponseMessages.CustomerNotFoundError,
+                    statusCode: 404
+                );
+            }
+
+            _repository.Remove(id: id);
+            _repository.SaveChanges();
+
+            return ServiceResult<Customer>.SuccessResult(data: customerExists);
         }
 
         public ServiceResult<Customer> Update(int id, CustomerRequestDTO customerRequestDTO)
