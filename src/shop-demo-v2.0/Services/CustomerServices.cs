@@ -157,7 +157,7 @@ namespace ShopDemo.Services
 
             // Lógica: o email passado existe ? se sim, ele pertence ao mesmo id do customer que passei? se sim, deixa passar, afinal é o mesmo customer repetindo o email.
             // Agora, se o email existe, e ele NÃO pertence ao customer com o mesmo id, NEGA!
-            if (customerRequestDTOToUpdatePatch.EmailAddress.Length > 1)
+            if (customerRequestDTOToUpdatePatch.EmailAddress != null)
             {
                 Customer? customerEmailExists = _repository.GetCustomerByEmail(emailAddress: customerRequestDTOToUpdatePatch.EmailAddress);
 
@@ -173,16 +173,61 @@ namespace ShopDemo.Services
 
             string firstNameIfNotExists;
             string lastNameIfNotExists;
+            string emailAddressIfNotExists;
+            DateOnly? dateOfBirthIfNotExists;
             
-            
+            //firstname
+            if (customerRequestDTOToUpdatePatch.FirstName != null)
+            {
+                firstNameIfNotExists = customerRequestDTOToUpdatePatch.FirstName;
+            }
+            else
+            {
+                firstNameIfNotExists = customerExists.FirstName;
+            }
 
+            // lastname
+            if (customerRequestDTOToUpdatePatch.LastName != null)
+            {
+                lastNameIfNotExists = customerRequestDTOToUpdatePatch.LastName;
+            }
+            else
+            {
+                lastNameIfNotExists = customerExists.LastName;
+            }
+
+            //emailaddress
+            if (customerRequestDTOToUpdatePatch.EmailAddress != null)
+            {
+                emailAddressIfNotExists = customerRequestDTOToUpdatePatch.EmailAddress;
+            }
+            else
+            {
+                emailAddressIfNotExists = customerExists.EmailAddress;
+            }
+
+            //dateofbirth
+            if (customerRequestDTOToUpdatePatch.DateOfBirth != null)
+            {
+                dateOfBirthIfNotExists = customerRequestDTOToUpdatePatch.DateOfBirth;
+            }
+            else
+            {
+                dateOfBirthIfNotExists = customerExists.DateOfBirth;
+            }
+            
             Customer updateCustomer = Customer.SetExistingInfo
             (
                 customerId: customerExists.CustomerId,
-                firstName: customerRequestDTO.FirstName,
-                lastName: customerRequestDTO.LastName,
-                emailAddress: customerRequestDTO.EmailAddress,
-                dateOfBirth: DateOnly.FromDateTime(customerRequestDTO.DateOfBirth)
+                firstName:firstNameIfNotExists,
+                lastName: lastNameIfNotExists,
+                emailAddress: emailAddressIfNotExists,
+                dateOfBirth: new DateOnly
+                (
+                    year: dateOfBirthIfNotExists.Value.Year,
+                    month: dateOfBirthIfNotExists.Value.Month, 
+                    day: dateOfBirthIfNotExists.Value.Day
+                )
             );
 
             if (!updateCustomer.IsValid)
