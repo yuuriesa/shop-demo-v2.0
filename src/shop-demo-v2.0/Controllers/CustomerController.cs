@@ -98,5 +98,11 @@ namespace ShopDemo.Controllers
 
             return Ok(customerResponseDTO);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Remove(int id)
+        {
+            
+        }
     }
 }
