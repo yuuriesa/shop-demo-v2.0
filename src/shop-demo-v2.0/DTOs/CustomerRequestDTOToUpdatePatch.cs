@@ -12,6 +12,6 @@ namespace ShopDemo.DTOs
         [EmailAddress(ErrorMessage = DomainResponseMessages.CustomerEmailFieldIsNotAValid)]
         public string? EmailAddress { get; set; }
         [DataType(DataType.Date)]
-        public DateTime? DateOfBirth { get; set; }
+        public DateOnly? DateOfBirth { get; set; }
     }
 }
