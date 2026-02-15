@@ -11,6 +11,7 @@ namespace ShopDemo.Services
         public ServiceResult<Customer> Add(CustomerRequestDTO customerRequestDTO);
         public ServiceResult<Customer> Update(int id, CustomerRequestDTO customerRequestDTO);
         public ServiceResult<Customer> UpdatePatch(int id, CustomerRequestDTOToUpdatePatch customerRequestDTOToUpdatePatch);
+        public void Remove(int id);
         public CustomerResponseDTO GenerateCustomerResponseDTO(Customer customer);
         public List<CustomerResponseDTO> GenerateListCustomerResponseDTO(IQueryable<Customer> customers);
     }

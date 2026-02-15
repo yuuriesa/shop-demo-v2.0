@@ -96,6 +96,11 @@ namespace ShopDemo.Services
             return _repository.GetById(id: id);
         }
 
+        public void Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public ServiceResult<Customer> Update(int id, CustomerRequestDTO customerRequestDTO)
         {
             Customer? customerExists = _dbContext.Customers.AsNoTracking().Where(c => c.CustomerId == id).FirstOrDefault();
