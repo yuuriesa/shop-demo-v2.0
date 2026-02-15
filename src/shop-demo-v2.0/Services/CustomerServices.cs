@@ -157,7 +157,7 @@ namespace ShopDemo.Services
 
             // Lógica: o email passado existe ? se sim, ele pertence ao mesmo id do customer que passei? se sim, deixa passar, afinal é o mesmo customer repetindo o email.
             // Agora, se o email existe, e ele NÃO pertence ao customer com o mesmo id, NEGA!
-            if (customerRequestDTOToUpdatePatch.EmailAddress.Length > 0)
+            if (customerRequestDTOToUpdatePatch.EmailAddress != null)
             {
                 Customer? customerEmailExists = _repository.GetCustomerByEmail(emailAddress: customerRequestDTOToUpdatePatch.EmailAddress);
 
@@ -177,7 +177,7 @@ namespace ShopDemo.Services
             DateOnly? dateOfBirthIfNotExists;
             
             //firstname
-            if (customerRequestDTOToUpdatePatch.FirstName.Length > 0)
+            if (customerRequestDTOToUpdatePatch.FirstName != null)
             {
                 firstNameIfNotExists = customerRequestDTOToUpdatePatch.FirstName;
             }
@@ -187,7 +187,7 @@ namespace ShopDemo.Services
             }
 
             // lastname
-            if (customerRequestDTOToUpdatePatch.LastName.Length > 0)
+            if (customerRequestDTOToUpdatePatch.LastName != null)
             {
                 lastNameIfNotExists = customerRequestDTOToUpdatePatch.LastName;
             }
@@ -197,7 +197,7 @@ namespace ShopDemo.Services
             }
 
             //emailaddress
-            if (customerRequestDTOToUpdatePatch.EmailAddress.Length > 0)
+            if (customerRequestDTOToUpdatePatch.EmailAddress != null)
             {
                 emailAddressIfNotExists = customerRequestDTOToUpdatePatch.EmailAddress;
             }
