@@ -102,7 +102,14 @@ namespace ShopDemo.Controllers
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            
+            ServiceResult<Customer> result = _services.Remove(id: id);
+
+            if (!result.Success)
+            {
+                return StatusCode(statusCode: result.StatusCode, value: result.Message);
+            }
+
+            return NoContent();
         }
     }
 }
