@@ -144,7 +144,56 @@ namespace ShopDemo.Services
 
         public ServiceResult<Customer> UpdatePatch(int id, CustomerRequestDTOToUpdatePatch customerRequestDTOToUpdatePatch)
         {
-            throw new NotImplementedException();
+            Customer? customerExists = _dbContext.Customers.AsNoTracking().Where(c => c.CustomerId == id).FirstOrDefault();
+
+            if (customerExists == null)
+            {
+                return ServiceResult<Customer>.ErrorResult
+                (
+                    message: DomainResponseMessages.CustomerNotFoundError,
+                    statusCode: 404
+                );
+            }
+
+            // Lógica: o email passado existe ? se sim, ele pertence ao mesmo id do customer que passei? se sim, deixa passar, afinal é o mesmo customer repetindo o email.
+            // Agora, se o email existe, e ele NÃO pertence ao customer com o mesmo id, NEGA!
+            if (customerRequestDTOToUpdatePatch.EmailAddress.Length > 1)
+            {
+                Customer? customerEmailExists = _repository.GetCustomerByEmail(emailAddress: customerRequestDTOToUpdatePatch.EmailAddress);
+
+                if (customerEmailExists != null && customerEmailExists.CustomerId != id)
+                {
+                    return ServiceResult<Customer>.ErrorResult
+                    (
+                        message: $"{DomainResponseMessages.CustomerEmailExistsError}: {customerRequestDTOToUpdatePatch.EmailAddress}",
+                        statusCode: 409
+                    );
+                }
+            }
+
+            string firstNameIfNotExists;
+            string lastNameIfNotExists;
+            
+            
+
+            Customer updateCustomer = Customer.SetExistingInfo
+            (
+                customerId: customerExists.CustomerId,
+                firstName: customerRequestDTO.FirstName,
+                lastName: customerRequestDTO.LastName,
+                emailAddress: customerRequestDTO.EmailAddress,
+                dateOfBirth: DateOnly.FromDateTime(customerRequestDTO.DateOfBirth)
+            );
+
+            if (!updateCustomer.IsValid)
+            {
+                return ServiceResult<Customer>.ErrorResult(message: updateCustomer.ErrorMessagesIfNotValid, statusCode: 400);
+            }
+
+            _repository.Update(id: id, entity: updateCustomer);
+            _repository.SaveChanges();
+
+            return ServiceResult<Customer>.SuccessResult(data: updateCustomer);
         }
     }
 }
