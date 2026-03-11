@@ -9,6 +9,7 @@ namespace ShopDemo.Services
         public IQueryable<Customer> GetAll(PaginationFilter paginationFilter);
         public Customer GetById(int id);
         public ServiceResult<Customer> Add(CustomerRequestDTO customerRequestDTO);
+        public ServiceResult<List<Customer>> AddBatch(List<CustomerRequestDTO> customersRequestDTO);
         public ServiceResult<Customer> Update(int id, CustomerRequestDTO customerRequestDTO);
         public ServiceResult<Customer> UpdatePatch(int id, CustomerRequestDTOToUpdatePatch customerRequestDTOToUpdatePatch);
         public ServiceResult<Customer> Remove(int id);

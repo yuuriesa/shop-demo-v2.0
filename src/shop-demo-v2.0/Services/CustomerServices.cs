@@ -51,6 +51,11 @@ namespace ShopDemo.Services
 
         }
 
+        public ServiceResult<List<Customer>> AddBatch(List<CustomerRequestDTO> customersRequestDTO)
+        {
+            throw new NotImplementedException();
+        }
+
         public CustomerResponseDTO GenerateCustomerResponseDTO(Customer customer)
         {
             CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO
