@@ -69,6 +69,12 @@ namespace ShopDemo.Controllers
             return CreatedAtAction(actionName: nameof(GetById), routeValues: new { id = customerResponseDTO.CustomerId}, value: customerResponseDTO);
         }
 
+        [HttpPost("Batch")]
+        public IActionResult AddBatch()
+        {
+            
+        }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, CustomerRequestDTO customerRequestDTO)
         {
