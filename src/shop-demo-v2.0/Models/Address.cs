@@ -1,8 +1,10 @@
+using System.Text.Json.Serialization;
+
 namespace ShopDemo.Models
 {
     public class Address
     {
-        // Public Properties
+        public int AddressId { get; set; }
         public string ZipCode { get; set; }
         public string Street { get; set; }
         public int Number { get; set; }
@@ -11,5 +13,8 @@ namespace ShopDemo.Models
         public string City { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
+        public int CustomerId { get; set; }
+        [JsonIgnore]
+        public Customer Customer { get; set; }
     }
 }
