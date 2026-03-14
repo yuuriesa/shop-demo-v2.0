@@ -56,6 +56,50 @@ namespace ShopDemo.Data
                     entity.Ignore(c => c.IsValid);
                 }
             );
+
+            modelBuilder.Entity<Address>(entity =>
+                {
+                    entity.HasKey(a => a.AddressId);
+
+                    entity.Property(a => a.ZipCode)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .HasColumnName("ZipCode");
+
+                    entity.Property(a => a.Street)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnName("Street");
+
+                    entity.Property(a => a.Number)
+                    .IsRequired()
+                    .HasColumnName("Number");
+
+                    entity.Property(a => a.Neighborhood)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Neighborhood");
+
+                    entity.Property(a => a.AddressComplement)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnName("AddressComplement");
+
+                    entity.Property(a => a.City)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("City");
+
+                    entity.Property(a => a.State)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Country");
+
+                    entity.HasOne(a => a.Customer)
+                    .WithMany(c => c.Addresses)
+                    .HasForeignKey(a => a.CustomerId);
+                }
+            );
         }
     }
 }
