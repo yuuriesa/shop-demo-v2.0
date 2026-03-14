@@ -37,6 +37,7 @@ namespace ShopDemo.Utils
         public const string OrderNumberMustBeGreaterThanZeroError = "OrderNumber must be greater than zero";
         public const string OrderNumberIsRequired = "OrderNumber Is Required";
         public const string OrderNotFoundMessageError = "Order Not Found";
-        public const string OrderNumberExistsError = "this OrderNumber exists";
+        public const string OrderNumberExistsError = "This OrderNumber exists";
+        public const string OrderNumberNotExistsError = "this OrderNumber not exists";
     }
 }
