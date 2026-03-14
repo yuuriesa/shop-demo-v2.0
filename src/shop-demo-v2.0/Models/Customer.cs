@@ -33,7 +33,8 @@ namespace ShopDemo.Models
             string firstName,
             string lastName,
             string emailAddress,
-            DateOnly dateOfBirth
+            DateOnly dateOfBirth,
+            List<Address> addresses
         )
         {
             SetCustomerId(customerId: customerId);
@@ -41,6 +42,7 @@ namespace ShopDemo.Models
             _lastName = lastName;
             _emailAddress = emailAddress;
             _dateOfBirth = dateOfBirth;
+            _addresses = addresses;
 
             Validate();
         }
