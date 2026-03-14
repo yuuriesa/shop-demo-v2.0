@@ -29,5 +29,6 @@ namespace ShopDemo.Utils
         public const string CodeIsRequired = "Code Is Required";
         public const string ProductCodeExistsError = "This Code Exists";
         public const string ProductNameIsRequired = "ProductName Is Required";
+        public const string DuplicateCodeError = "Found duplicate Codes";
     }
 }
