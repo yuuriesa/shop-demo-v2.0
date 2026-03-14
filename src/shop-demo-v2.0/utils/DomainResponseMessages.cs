@@ -15,5 +15,6 @@ namespace ShopDemo.Utils
         public const string CustomerNotFoundError = "Customer not found";
         public const string CustomerIdMustBeGeaterThanZeroError = "CustomerId must be greater than zero";
         public const string CustomerFieldsAreInvalidError = "FirstName, Lastname or DateOfBirth fields are invalid, check the values available.";
+        public const string DuplicateEmailError = "Found duplicate emails.";
     }
 }
