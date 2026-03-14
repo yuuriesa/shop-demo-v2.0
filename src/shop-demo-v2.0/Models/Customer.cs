@@ -53,7 +53,8 @@ namespace ShopDemo.Models
             string firstName,
             string lastName,
             string emailAddress,
-            DateTime dateOfBirth
+            DateTime dateOfBirth,
+            List<AddressRequestDTO> addresses
         )
         {
             Customer customer = new Customer ();
@@ -62,6 +63,7 @@ namespace ShopDemo.Models
             customer.SetLastName(lastName: lastName);
             customer.SetEmailAddress(emailAddress: emailAddress);
             customer.SetDateOfBirth(dateOfBirth: dateOfBirth);
+            customer.SetAddresses(addresses: addresses);
             customer.Validate();
 
             return customer;
