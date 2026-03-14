@@ -28,5 +28,6 @@ namespace ShopDemo.Utils
         public const string ProductNotFoundMessageError = "Product not found";
         public const string CodeIsRequired = "Code Is Required";
         public const string ProductCodeExistsError = "This Code Exists";
+        public const string ProductNameIsRequired = "ProductName Is Required";
     }
 }
