@@ -9,6 +9,7 @@ namespace ShopDemo.Models
         private string _lastName;
         private string _emailAddress;
         private DateOnly _dateOfBirth;
+        // private ICollection<Address> _addresses = new List<Address>();
 
         // public properties
         public int CustomerId { get; private set; }
@@ -16,6 +17,7 @@ namespace ShopDemo.Models
         public string LastName => _lastName;
         public string EmailAddress => _emailAddress;
         public DateOnly DateOfBirth =>  _dateOfBirth;
+        public ICollection<Address> Addresses => _addresses;
         public bool IsValid { get; private set; }
         public string ErrorMessagesIfNotValid { get; private set; } = string.Empty;
 
