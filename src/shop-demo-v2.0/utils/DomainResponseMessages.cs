@@ -30,5 +30,9 @@ namespace ShopDemo.Utils
         public const string ProductCodeExistsError = "This Code Exists";
         public const string ProductNameIsRequired = "ProductName Is Required";
         public const string DuplicateCodeError = "Found duplicate Codes";
+        public const string ProductFieldsAreInvalidError = "Code or Name fields are invalid, check the values available.";
+
+        // Order class
+        public const string OrderIdMustBeGreaterThanZeroError = "OrderId must be greater than zero";
     }
 }
