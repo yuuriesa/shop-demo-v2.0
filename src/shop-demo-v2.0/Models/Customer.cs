@@ -9,7 +9,7 @@ namespace ShopDemo.Models
         private string _lastName;
         private string _emailAddress;
         private DateOnly _dateOfBirth;
-        // private ICollection<Address> _addresses = new List<Address>();
+        private ICollection<Address> _addresses = new List<Address>();
 
         // public properties
         public int CustomerId { get; private set; }
