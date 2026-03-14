@@ -1,3 +1,4 @@
+using ShopDemo.DTOs;
 using ShopDemo.Utils;
 
 namespace ShopDemo.Models
