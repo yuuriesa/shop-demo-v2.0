@@ -13,5 +13,7 @@ namespace ShopDemo.Utils
         public const string CustomerEmailFieldIsNotAValid = "The Email field is not a valid e-mail address.";
         public const string CustomerEmailExistsError = "this email exists";
         public const string CustomerNotFoundError = "Customer not found";
+        public const string CustomerIdMustBeGeaterThanZeroError = "CustomerId must be greater than zero";
+        public const string CustomerFieldsAreInvalidError = "FirstName, Lastname or DateOfBirth fields are invalid, check the values available.";
     }
 }
