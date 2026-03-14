@@ -34,5 +34,6 @@ namespace ShopDemo.Utils
 
         // Order class
         public const string OrderIdMustBeGreaterThanZeroError = "OrderId must be greater than zero";
+        public const string OrderNumberMustBeGreaterThanZeroError = "OrderNumber must be greater than zero";
     }
 }
