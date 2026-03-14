@@ -159,6 +159,12 @@ namespace ShopDemo.Models
                 ErrorMessagesIfNotValid = $"Last name {DomainResponseMessages.MaximumOf40CharactersError.ToLower()}";
             }
 
+            if (Addresses.Count() == 0)
+            {
+                IsValid = false;
+                ErrorMessagesIfNotValid = DomainResponseMessages.MustHaveAtLeastOneAddress;
+            }
+
             if (ErrorMessagesIfNotValid == string.Empty)
             {
                 IsValid = true;
