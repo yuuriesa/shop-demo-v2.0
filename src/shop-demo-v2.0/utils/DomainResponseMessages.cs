@@ -42,5 +42,6 @@ namespace ShopDemo.Utils
         public const string DateOfOrderError = "You cannot put the date with the day after today.";
         public const string TheOrderMustHaveAtLeastOneItem = "The order must have at least one item";
         public const string TheUnitValueMustBeGreaterThanZero = "The unit value must be greater than zero.";
+        public const string TheQuantityOfItensMustBeGreaterThanZero = "The quantity of itens must be greater than zero.";
     }
 }
