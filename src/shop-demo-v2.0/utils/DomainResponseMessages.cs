@@ -22,5 +22,8 @@ namespace ShopDemo.Utils
         public const string MaximumOf100CharactersError = "Must have a maximum of 100 characters";
         public const string MaximumOf50CharactersError = "Must have a maximum of 50 characters";
         public const string MustHaveAtLeastOneAddress = "You must have at least one address";
+    
+        // Product class
+        public const string ProductIdMustBeGreaterThanZeroError = "ProductId must be greater than zero";
     }
 }
