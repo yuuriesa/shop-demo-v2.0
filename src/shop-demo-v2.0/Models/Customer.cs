@@ -1,3 +1,4 @@
+using ShopDemo.DTOs;
 using ShopDemo.Utils;
 
 namespace ShopDemo.Models
@@ -9,6 +10,7 @@ namespace ShopDemo.Models
         private string _lastName;
         private string _emailAddress;
         private DateOnly _dateOfBirth;
+        private ICollection<Address> _addresses = new List<Address>();
 
         // public properties
         public int CustomerId { get; private set; }
@@ -16,6 +18,7 @@ namespace ShopDemo.Models
         public string LastName => _lastName;
         public string EmailAddress => _emailAddress;
         public DateOnly DateOfBirth =>  _dateOfBirth;
+        public ICollection<Address> Addresses => _addresses;
         public bool IsValid { get; private set; }
         public string ErrorMessagesIfNotValid { get; private set; } = string.Empty;
 
@@ -31,7 +34,8 @@ namespace ShopDemo.Models
             string firstName,
             string lastName,
             string emailAddress,
-            DateOnly dateOfBirth
+            DateOnly dateOfBirth,
+            List<Address> addresses
         )
         {
             SetCustomerId(customerId: customerId);
@@ -39,6 +43,7 @@ namespace ShopDemo.Models
             _lastName = lastName;
             _emailAddress = emailAddress;
             _dateOfBirth = dateOfBirth;
+            _addresses = addresses;
 
             Validate();
         }
@@ -49,7 +54,8 @@ namespace ShopDemo.Models
             string firstName,
             string lastName,
             string emailAddress,
-            DateTime dateOfBirth
+            DateTime dateOfBirth,
+            List<AddressRequestDTO> addresses
         )
         {
             Customer customer = new Customer ();
@@ -58,6 +64,7 @@ namespace ShopDemo.Models
             customer.SetLastName(lastName: lastName);
             customer.SetEmailAddress(emailAddress: emailAddress);
             customer.SetDateOfBirth(dateOfBirth: dateOfBirth);
+            customer.SetAddresses(addresses: addresses);
             customer.Validate();
 
             return customer;
@@ -69,7 +76,8 @@ namespace ShopDemo.Models
             string firstName,
             string lastName,
             string emailAddress,
-            DateOnly dateOfBirth
+            DateOnly dateOfBirth,
+            List<Address> addresses
         )
         {
             Customer customer = new Customer
@@ -78,7 +86,8 @@ namespace ShopDemo.Models
                 firstName: firstName,
                 lastName: lastName,
                 emailAddress: emailAddress,
-                dateOfBirth: dateOfBirth
+                dateOfBirth: dateOfBirth,
+                addresses: addresses
             );
 
             return customer;
@@ -110,6 +119,24 @@ namespace ShopDemo.Models
             _dateOfBirth = DateOnly.FromDateTime(dateTime: dateOfBirth);
         }
 
+        private void SetAddresses(List<AddressRequestDTO> addresses)
+        {
+            foreach (var address in addresses)
+            {
+                Addresses.Add(item: new Address
+                {
+                    ZipCode = address.ZipCode,
+                    Street = address.Street,
+                    Number = address.Number,
+                    Neighborhood = address.Neighborhood,
+                    AddressComplement = address.AddressComplement,
+                    City = address.City,
+                    State = address.State,
+                    Country = address.Country
+                });
+            }
+        }
+
         private void Validate ()
         {
             DateTime dateNow = DateTime.Now;
@@ -130,6 +157,12 @@ namespace ShopDemo.Models
             {
                 IsValid = false;
                 ErrorMessagesIfNotValid = $"Last name {DomainResponseMessages.MaximumOf40CharactersError.ToLower()}";
+            }
+
+            if (Addresses.Count() == 0)
+            {
+                IsValid = false;
+                ErrorMessagesIfNotValid = DomainResponseMessages.MustHaveAtLeastOneAddress;
             }
 
             if (ErrorMessagesIfNotValid == string.Empty)
