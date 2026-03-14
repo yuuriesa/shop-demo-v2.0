@@ -76,7 +76,8 @@ namespace ShopDemo.Models
             string firstName,
             string lastName,
             string emailAddress,
-            DateOnly dateOfBirth
+            DateOnly dateOfBirth,
+            List<Address> addresses
         )
         {
             Customer customer = new Customer
@@ -85,7 +86,8 @@ namespace ShopDemo.Models
                 firstName: firstName,
                 lastName: lastName,
                 emailAddress: emailAddress,
-                dateOfBirth: dateOfBirth
+                dateOfBirth: dateOfBirth,
+                addresses: addresses
             );
 
             return customer;
@@ -115,6 +117,24 @@ namespace ShopDemo.Models
         private void SetDateOfBirth (DateTime dateOfBirth)
         {
             _dateOfBirth = DateOnly.FromDateTime(dateTime: dateOfBirth);
+        }
+
+        private void SetAddresses(List<AddressRequestDTO> addresses)
+        {
+            foreach (var address in addresses)
+            {
+                Addresses.Add(item: new Address
+                {
+                    ZipCode = address.ZipCode,
+                    Street = address.Street,
+                    Number = address.Number,
+                    Neighborhood = address.Neighborhood,
+                    AddressComplement = address.AddressComplement,
+                    City = address.City,
+                    State = address.State,
+                    Country = address.Country
+                });
+            }
         }
 
         private void Validate ()
