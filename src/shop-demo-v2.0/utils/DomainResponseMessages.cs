@@ -16,5 +16,8 @@ namespace ShopDemo.Utils
         public const string CustomerIdMustBeGeaterThanZeroError = "CustomerId must be greater than zero";
         public const string CustomerFieldsAreInvalidError = "FirstName, Lastname or DateOfBirth fields are invalid, check the values available.";
         public const string DuplicateEmailError = "Found duplicate emails.";
+    
+        // Address class
+        public const string MaximumOf20CharactersError = "Must have a maximum of 20 characters";
     }
 }
