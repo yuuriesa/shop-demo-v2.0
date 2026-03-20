@@ -25,7 +25,7 @@ namespace ShopDemo.Utils
         public const string ZipCodeIsRequiredError = "ZipCode Is Required";
         public const string StreetIsRequiredError = "Street Is Required";
         public const string NumberIsRequiredError = "Number Is Required";
-        public const string NeighborhoodIsRequired = "Neighborhood Is Required";
+        public const string NeighborhoodIsRequiredError = "Neighborhood Is Required";
         public const string AddressComplementIsRequiredError = "AddressComplement Is Required";
     
         // Product class
