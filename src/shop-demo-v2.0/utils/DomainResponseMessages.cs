@@ -30,6 +30,7 @@ namespace ShopDemo.Utils
         public const string CityIsRequiredError = "City Is Required";
         public const string StateIsRequiredError = "State Is Required";
         public const string CountryIsRequiredError = "Country Is Required";
+        public const string The_ZipCode_Property_Needs_To_Be_At_Least_20_Characters_Long = "The ZipCode property needs to be at least 20 characters long";
     
         // Product class
         public const string ProductIdMustBeGreaterThanZeroError = "ProductId must be greater than zero";
