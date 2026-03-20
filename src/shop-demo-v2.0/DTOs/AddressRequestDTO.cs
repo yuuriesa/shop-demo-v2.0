@@ -26,6 +26,7 @@ namespace ShopDemo.DTOs
         [MaxLength(length: 50, ErrorMessage = DomainResponseMessages.MaximumOf50CharactersError)]
         public string State { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.CountryIsRequiredError)]
+        [MaxLength(length: 50, ErrorMessage = DomainResponseMessages.MaximumOf50CharactersError)]
         public string Country { get; set; }  
     }
 }
