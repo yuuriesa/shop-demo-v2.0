@@ -14,6 +14,7 @@ namespace ShopDemo.DTOs
         [Required(ErrorMessage = DomainResponseMessages.NumberIsRequiredError)]
         public int Number { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.NeighborhoodIsRequiredError)]
+        [MaxLength(length: 50, ErrorMessage = DomainResponseMessages.MaximumOf50CharactersError)]
         public string Neighborhood { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.AddressComplementIsRequiredError)]
         public string AddressComplement { get; set; }
