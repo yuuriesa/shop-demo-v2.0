@@ -11,7 +11,7 @@ namespace ShopDemo.DTOs
         public string Street { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.NumberIsRequiredError)]
         public int Number { get; set; }
-        [Required]
+        [Required(ErrorMessage = DomainResponseMessages.NeighborhoodIsRequiredError)]
         public string Neighborhood { get; set; }
         [Required]
         public string AddressComplement { get; set; }
