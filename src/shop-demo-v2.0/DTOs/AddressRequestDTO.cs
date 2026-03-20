@@ -7,7 +7,7 @@ namespace ShopDemo.DTOs
     {
         [Required(ErrorMessage = DomainResponseMessages.ZipCodeIsRequiredError)]
         public string ZipCode { get; set; }
-        [Required]
+        [Required(ErrorMessage = DomainResponseMessages.StreetIsRequiredError)]
         public string Street { get; set; }
         [Required]
         public int Number { get; set; }
