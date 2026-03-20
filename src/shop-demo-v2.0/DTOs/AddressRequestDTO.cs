@@ -17,7 +17,7 @@ namespace ShopDemo.DTOs
         public string AddressComplement { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.CityIsRequiredError)]
         public string City { get; set; }
-        [Required]
+        [Required(ErrorMessage = DomainResponseMessages.StateIsRequiredError)]
         public string State { get; set; }
         [Required]
         public string Country { get; set; }  
