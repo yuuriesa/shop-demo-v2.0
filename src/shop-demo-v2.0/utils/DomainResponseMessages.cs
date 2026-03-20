@@ -24,6 +24,7 @@ namespace ShopDemo.Utils
         public const string MustHaveAtLeastOneAddressError = "You must have at least one address";
         public const string ZipCodeIsRequiredError = "ZipCode Is Required";
         public const string StreetIsRequiredError = "Street Is Required";
+        public const string NumberIsRequiredError = "Number Is Required";
     
         // Product class
         public const string ProductIdMustBeGreaterThanZeroError = "ProductId must be greater than zero";
