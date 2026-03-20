@@ -9,7 +9,7 @@ namespace ShopDemo.DTOs
         public string ZipCode { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.StreetIsRequiredError)]
         public string Street { get; set; }
-        [Required]
+        [Required(ErrorMessage = DomainResponseMessages.NumberIsRequiredError)]
         public int Number { get; set; }
         [Required]
         public string Neighborhood { get; set; }
