@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using ShopDemo.Utils;
 
 namespace ShopDemo.DTOs
 {
     public class AddressRequestDTO
     {
-        [Required]
+        [Required(ErrorMessage = DomainResponseMessages.ZipCodeIsRequiredError)]
         public string ZipCode { get; set; }
         [Required]
         public string Street { get; set; }
