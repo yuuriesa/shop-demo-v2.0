@@ -28,6 +28,7 @@ namespace ShopDemo.Utils
         public const string NeighborhoodIsRequiredError = "Neighborhood Is Required";
         public const string AddressComplementIsRequiredError = "AddressComplement Is Required";
         public const string CityIsRequiredError = "City Is Required";
+        public const string StateIsRequiredError = "State Is Required";
     
         // Product class
         public const string ProductIdMustBeGreaterThanZeroError = "ProductId must be greater than zero";
