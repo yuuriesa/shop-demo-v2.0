@@ -13,7 +13,7 @@ namespace ShopDemo.DTOs
         public int Number { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.NeighborhoodIsRequiredError)]
         public string Neighborhood { get; set; }
-        [Required]
+        [Required(ErrorMessage = DomainResponseMessages.AddressComplementIsRequiredError)]
         public string AddressComplement { get; set; }
         [Required]
         public string City { get; set; }
