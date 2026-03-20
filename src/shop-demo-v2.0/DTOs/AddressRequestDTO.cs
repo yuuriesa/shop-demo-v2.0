@@ -9,6 +9,7 @@ namespace ShopDemo.DTOs
         [MaxLength(length: 20, ErrorMessage = DomainResponseMessages.MaximumOf20CharactersError)]
         public string ZipCode { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.StreetIsRequiredError)]
+        [MaxLength(length: 100, ErrorMessage = DomainResponseMessages.MaximumOf100CharactersError)]
         public string Street { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.NumberIsRequiredError)]
         public int Number { get; set; }
