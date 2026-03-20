@@ -93,6 +93,11 @@ namespace ShopDemo.Data
                     entity.Property(a => a.State)
                     .IsRequired()
                     .HasMaxLength(50)
+                    .HasColumnName("State");
+
+                    entity.Property(a => a.Country)
+                    .IsRequired()
+                    .HasMaxLength(50)
                     .HasColumnName("Country");
 
                     entity.HasOne(a => a.Customer)
