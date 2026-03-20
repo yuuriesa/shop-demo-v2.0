@@ -21,8 +21,17 @@ namespace ShopDemo.Utils
         public const string MaximumOf20CharactersError = "Must have a maximum of 20 characters";
         public const string MaximumOf100CharactersError = "Must have a maximum of 100 characters";
         public const string MaximumOf50CharactersError = "Must have a maximum of 50 characters";
-        public const string MustHaveAtLeastOneAddress = "You must have at least one address";
-    
+        public const string MustHaveAtLeastOneAddressError = "You must have at least one address";
+        public const string ZipCodeIsRequiredError = "ZipCode Is Required";
+        public const string StreetIsRequiredError = "Street Is Required";
+        public const string NumberIsRequiredError = "Number Is Required";
+        public const string NeighborhoodIsRequiredError = "Neighborhood Is Required";
+        public const string AddressComplementIsRequiredError = "AddressComplement Is Required";
+        public const string CityIsRequiredError = "City Is Required";
+        public const string StateIsRequiredError = "State Is Required";
+        public const string CountryIsRequiredError = "Country Is Required";
+        
+            
         // Product class
         public const string ProductIdMustBeGreaterThanZeroError = "ProductId must be greater than zero";
         public const string ProductNotFoundMessageError = "Product not found";

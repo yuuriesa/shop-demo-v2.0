@@ -162,7 +162,7 @@ namespace ShopDemo.Models
             if (Addresses.Count() == 0)
             {
                 IsValid = false;
-                ErrorMessagesIfNotValid = DomainResponseMessages.MustHaveAtLeastOneAddress;
+                ErrorMessagesIfNotValid = DomainResponseMessages.MustHaveAtLeastOneAddressError;
             }
 
             if (ErrorMessagesIfNotValid == string.Empty)
