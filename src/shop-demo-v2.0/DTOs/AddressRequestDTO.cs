@@ -19,7 +19,7 @@ namespace ShopDemo.DTOs
         public string City { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.StateIsRequiredError)]
         public string State { get; set; }
-        [Required]
+        [Required(ErrorMessage = DomainResponseMessages.CountryIsRequiredError)]
         public string Country { get; set; }  
     }
 }
