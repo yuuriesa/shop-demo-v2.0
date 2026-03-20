@@ -6,7 +6,7 @@ namespace ShopDemo.DTOs
     public class AddressRequestDTO
     {
         [Required(ErrorMessage = DomainResponseMessages.ZipCodeIsRequiredError)]
-        [MaxLength(length: 20, ErrorMessage = DomainResponseMessages.The_ZipCode_Property_Needs_To_Be_At_Least_20_Characters_Long)]
+        [MaxLength(length: 20, ErrorMessage = DomainResponseMessages.MaximumOf20CharactersError)]
         public string ZipCode { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.StreetIsRequiredError)]
         public string Street { get; set; }
