@@ -23,6 +23,7 @@ namespace ShopDemo.Utils
         public const string MaximumOf50CharactersError = "Must have a maximum of 50 characters";
         public const string MustHaveAtLeastOneAddressError = "You must have at least one address";
         public const string ZipCodeIsRequiredError = "ZipCode Is Required";
+        public const string StreetIsRequiredError = "Street Is Required";
     
         // Product class
         public const string ProductIdMustBeGreaterThanZeroError = "ProductId must be greater than zero";
