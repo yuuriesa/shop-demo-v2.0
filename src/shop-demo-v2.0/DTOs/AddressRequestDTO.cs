@@ -20,6 +20,7 @@ namespace ShopDemo.DTOs
         [MaxLength(length: 100, ErrorMessage = DomainResponseMessages.MaximumOf100CharactersError)]
         public string AddressComplement { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.CityIsRequiredError)]
+        [MaxLength(length: 50, ErrorMessage = DomainResponseMessages.MaximumOf50CharactersError)]
         public string City { get; set; }
         [Required(ErrorMessage = DomainResponseMessages.StateIsRequiredError)]
         public string State { get; set; }
